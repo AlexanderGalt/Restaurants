@@ -1,6 +1,6 @@
 import { Header } from "../widgets/Header.jsx"
 import { Footer } from "../widgets/Footer.jsx"
-
+import { ProgressBar } from "../widgets/ProgressBar.jsx"
 export function Layout({ children }) {
 	return (
 		<>
@@ -8,6 +8,7 @@ export function Layout({ children }) {
 			<main className="main">
 				{children}
 			</main>
+			<ProgressBar />
 			<Footer />
 		</>
 	)

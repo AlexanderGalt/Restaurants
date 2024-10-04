@@ -1,5 +1,5 @@
 import { restaurants } from "../../materials/mock.js";
-import { Restaurant } from "../entities/Restaurant.jsx";
+import { Restaurant } from "../entities/Restaurant/Restaurant.jsx";
 import { useState } from 'react'
 
 export function TabsRestaurants() {
