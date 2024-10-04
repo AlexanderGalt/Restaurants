@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Vite + React</title>
+</head>
+<style>
+	html,
+	.body {
+		height: 100%;
+	}
+
+	* {
+		box-sizing: border-box;
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	#root {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+		flex: 1 0 auto;
+		margin: 0px 0px 48px 0px;
+	}
+
+	.header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 0 0 100px;
+		height: 100px;
+		border: solid 1px;
+		margin: 0px 0px 48px 0px;
+	}
+
+	.restaurants-tabs {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.restaurants-tabs__header {
+		display: flex;
+		gap: 16px;
+		margin: 0px 0px 12px 0px;
+	}
+
+	.restaurants-tabs__title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 56px;
+		flex: 1 1 auto;
+		border: solid 1px;
+		cursor: pointer;
+		transition: all ease-in-out .3s;
+	}
+
+	.restaurants-tabs__title:hover {
+		box-shadow: 1px 1px 1px 1px;
+	}
+
+	.activeTab {
+		pointer-events: none;
+		border: solid 1px red;
+	}
+
+	.restaurants-tabs__body {
+		max-width: 952px;
+		flex: 1 1 100%;
+		width: 100%;
+	}
+
+	.restaurant-item {
+		padding: 0 16px;
+		border: solid 1px;
+	}
+
+	.footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 0 0 100px;
+		height: 100px;
+		border: solid 1px;
+	}
+</style>
+
+<body class="body qwe">
+	<div id="root"></div>
+	<script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
