@@ -1,9 +1,9 @@
-import { Menu } from "./MenuOfRestaurant/MenuOfRestaurant.jsx";
-import { Reviews } from "./ReviewsOfRestaurant.jsx";
+import { RestaurantMenu } from "./RestaurantMenu/RestaurantMenu.jsx";
+import { RestaurantReviews } from "./RestaurantReviews.jsx";
 import { ReviewForm } from "../ReviewForm/ReviewForm.jsx";
 
 export function Restaurant({ restaurantId, restaurantName, restaurantMenu, restaurantReviews }) {
-	return ( // здесь условый рендеринг (restaurantData.name &&) не нужен, т.к. сюда всегда будут попадать "restaurantData", у которых есть имя, т.к. проверка на имя ресторана ужеесть в заголовке таба.
+	return ( // здесь условый рендеринг (restaurantData.name &&) не нужен, т.к. сюда всегда будут попадать "restaurantData", у которых есть имя, т.к. проверка на имя ресторана уже есть в заголовке таба.
 		<div
 			className="restaurant-item"
 			key={restaurantId}
@@ -15,8 +15,8 @@ export function Restaurant({ restaurantId, restaurantName, restaurantMenu, resta
 			<h2 className="restaurant-item__name">
 				{restaurantName}
 			</h2>
-			<Menu menuData={restaurantMenu} />
-			<Reviews reviewsData={restaurantReviews} />
+			<RestaurantMenu menuData={restaurantMenu} />
+			<RestaurantReviews reviewsData={restaurantReviews} />
 			<ReviewForm />
 			<ReviewForm />
 			<ReviewForm />

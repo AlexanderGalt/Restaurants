@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useCountMenu() {
+export function useMenuCounter() {
 	const [counterValue, setCounter] = useState(0);
 
 	const increment = () => {

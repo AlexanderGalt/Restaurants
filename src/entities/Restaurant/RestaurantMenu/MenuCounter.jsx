@@ -1,8 +1,8 @@
 import { Counter } from "../../../shared/Counter.jsx"
-import { useCountMenu } from "./useCountMenu.js"
+import { useMenuCounter } from "./useMenuCounter.js"
 
-export function CounterOfMenu() {
-	const { counterValue, increment, decrement } = useCountMenu();
+export function MenuCounter() {
+	const { counterValue, increment, decrement } = useMenuCounter();
 	return <Counter
 		counterValue={counterValue}
 		increment={increment}

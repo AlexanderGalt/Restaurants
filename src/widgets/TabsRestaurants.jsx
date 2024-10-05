@@ -4,12 +4,15 @@ import { useState } from 'react'
 
 export function TabsRestaurants() {
 	const startRestaurantTab = restaurants.find((restaurantItem) => restaurantItem.name); // на случай если ресторан с индексом 0 будет без имени, т.е. невалидный. Иначе, если удалить имя у первого ресторана, то первый рендер будет баганый (будет пустой таб).
-
 	const startId = startRestaurantTab.id;
 	const [currId, setCurrId] = useState(startId);
 	const currRestaurantData = restaurants.find((restaurant) => restaurant.id === currId);
 
-	return !!restaurants.length && (
+	if (!restaurants.length) {
+		return null
+	}
+
+	return (
 		<div className="restaurants-tabs">
 			<div className="restaurants-tabs__header">
 				{

@@ -2,18 +2,20 @@ import { useEffect } from "react"
 import { useState } from "react"
 
 function calcPercentage() {
-	return (((document.documentElement.clientHeight + window.scrollY) / document.documentElement.scrollHeight) * 100).toFixed(0)
+	return (
+		((document.documentElement.clientHeight + window.scrollY) / document.documentElement.scrollHeight) * 100
+	).toFixed(0)
 }
 
 export function ProgressBar() {
-	const [ProgressScrollBarValue, setProgressScrollBarValue] = useState("0%");
+	const [progressScrollBarValue, setProgressScrollBarValue] = useState(); // если в "useState" указать в параметр "initialValue" вызов функции "calcPercentage()" и не вызывать отдельно "handleScroll()" в "useEffect()", то будет баг:
+	// при открытии страницы значение прогресс-бара будет некорректным, т.к. возьмётся из параметра "initialValue", т.е. будет "calcPercentage()", но при открытии страницы ещё не все элементы ДОМа отрисовались, реакт не успевает их зарендерить. В следствии чего, на моммент подсчёта формулой "calcPercentage()", высота нашей страницы меньше, чем должна быть на самом деле (т.к. не всё ещё успело отрисоваться). Поэтому при открытии стрницы мы полчим не 70% прогресс бара (как должно быть), а 95% (т.к. страница ещё не успела вся зарендерится и занять долнжную высоту). Т.е. нам нужно считать значерние прогресбара только ПОСЛЕ того как все компаненты замаунтились (смантировались, зарендерились в ДОМ). Для этого необходимо использовать "useEffect()".
 
 	useEffect(() => {
-		setProgressScrollBarValue(calcPercentage());
-		const handleScroll = (e) => {
-			setProgressScrollBarValue(calcPercentage());
-		};
+		const handleScroll = () => setProgressScrollBarValue(calcPercentage());
+		handleScroll(); // если этого вызова не будет, то при открытии страницы, значение прогресс-бара будет некорректным, т.к. коректное значение посчитается только при скроле. Т.е. без этой строчки нам будет необходимо проскролить страницу чтобы увидитеть корректное значение прогресс-бара.
 		document.addEventListener('scroll', handleScroll);
+
 		return () => {
 			document.removeEventListener("scroll", handleScroll);
 		}
@@ -33,7 +35,7 @@ export function ProgressBar() {
 		>
 			<div
 				style={{
-					width: ProgressScrollBarValue + "%",
+					width: progressScrollBarValue + "%",
 					height: "100%",
 					background: "red",
 				}}
