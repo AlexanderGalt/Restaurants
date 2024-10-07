@@ -1,5 +1,9 @@
-export function Reviews({ reviewsData }) {
-	return !!reviewsData.length && (
+export function RestaurantReviews({ reviewsData }) {
+	if (!reviewsData.length) {
+		return null
+	}
+
+	return (
 		<div className="restaurant-reviews">
 			<h3 className="restaurant-reviews__title">Отзывы</h3>
 			<ul className="restaurant-reviews__list">

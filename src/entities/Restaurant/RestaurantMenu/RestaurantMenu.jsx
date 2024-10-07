@@ -1,7 +1,10 @@
-import { Counter } from "../shared/Counter.jsx";
+import { MenuCounter } from "./MenuCounter.jsx";
 
-export function Menu({ menuData }) {
-	return !!menuData.length && (
+export function RestaurantMenu({ menuData }) {
+	if (!menuData.length) {
+		return null
+	}
+	return (
 		<div className="restaurant-menu">
 			<h3 className="restaurant-menu__title">Меню</h3>
 			<ul className="restaurant-menu__list">
@@ -13,7 +16,7 @@ export function Menu({ menuData }) {
 						data-ingredients={menuItem.ingredients}
 					>
 						{menuItem.name}
-						<Counter />
+						<MenuCounter />
 					</li>
 				))}
 			</ul>
