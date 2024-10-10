@@ -1,0 +1,28 @@
+.restaurantReviews{
+
+}
+
+.restaurantReviewsTitle{
+	/* font-weight: 500;
+	font-size: 1.1rem;
+	margin: 0px 0px 16px 0px;
+	width: fit-content;
+	border-bottom: 2px solid; */
+}
+
+.restaurantReviewsList{
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding-left: calc(0px + 14 * ((100vw - 320px)/ 1600));
+}
+
+.restaurantReviewsItem{
+
+}
+
+@media(min-width: 1920px){
+	.restaurantMenuList{
+		padding-left: 14px;
+	}
+}

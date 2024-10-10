@@ -1,0 +1,33 @@
+.restaurantsTabsBody {
+	display: flex;
+	flex-direction: column;
+	gap: calc(28px + 12 * ((100vw - 320px)/ 1600));
+	max-width: 952px;
+	padding: calc(14px + 10 * ((100vw - 320px)/ 1600));
+	border: solid 1px;
+}
+
+.restaurantsTabsBodyName{
+	font-weight: 500;
+	font-size: calc(14px + 12*((100vw - 320px) / 1600));
+}
+
+.restaurantsTabsBody h4{
+	font-weight: 500;
+	font-size: 1.1rem;
+	margin: 0px 0px 16px 0px;
+	width: fit-content;
+	border-bottom: 2px solid;
+	color: #000;
+	text-transform: uppercase;
+}
+
+@media(min-width: 1920px){
+	.restaurantsTabsBody {
+		padding: 24px;
+		gap: 40px;
+	}
+	.restaurantsTabsBodyName{
+		font-size: 26px;
+	}
+}

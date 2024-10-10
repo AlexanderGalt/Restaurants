@@ -1,4 +1,4 @@
-import { Counter } from "../../../shared/Counter.jsx"
+import { Counter } from "../../../shared/Counter/Counter.jsx"
 import { useMenuCounter } from "./useMenuCounter.js"
 
 export function MenuCounter() {

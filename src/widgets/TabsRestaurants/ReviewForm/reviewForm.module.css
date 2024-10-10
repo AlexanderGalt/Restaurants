@@ -1,0 +1,71 @@
+.reviewForm{
+
+}
+
+.reviewFormTitle{
+	/* font-weight: 500;
+	font-size: 1.1rem;
+	margin: 0px 0px 16px 0px;
+	width: fit-content;
+	border-bottom: 2px solid; */
+}
+
+.reviewFormBody{
+	padding: calc(8px + 8 * ((100vw - 320px)/ 1600));
+	border: 1px solid;
+	display: flex;
+	flex-direction: column;
+	gap: calc(12px + 12 * ((100vw - 320px)/ 1600));
+	margin: 0px 0px 18px 0px;
+}
+
+.reviewFormField{
+}
+
+.reviewFieldLabel{
+	font-size: 0.9em;
+	padding: 12px calc(6px + 6 * ((100vw - 320px)/ 1600));
+	border: 1px solid;
+}
+
+.reviewFieldInput{
+
+}
+
+.reviewFormCounter{
+	display: flex;
+	gap: 12px;
+}
+
+.reviewFormBtns{
+	display: flex;
+	gap: 18px;
+}
+
+.reviewFormClear{
+
+}
+
+.reviewFormBtn{
+
+}
+
+@media(min-width: 1920px){
+	.reviewFormBody{
+		padding: 16px;
+		gap: 24px;
+	}
+	.reviewFieldLabel{
+		padding: 12px;
+	}
+}
+
+@media(max-width: 375px){
+	.reviewFormBtns{
+		flex-direction: column;
+		gap: 8px;
+	}
+	.reviewFormBtns>*{
+		width: 100%;
+	}
+}
