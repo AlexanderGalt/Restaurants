@@ -1,0 +1,12 @@
+.restaurantReviewsList{
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding-left: calc(0px + 14 * ((100vw - 320px)/ 1600));
+}
+
+@media(min-width: 1920px){
+	.restaurantMenuList{
+		padding-left: 14px;
+	}
+}

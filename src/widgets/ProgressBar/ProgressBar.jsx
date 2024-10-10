@@ -1,5 +1,8 @@
-import { useEffect } from "react"
-import { useState } from "react"
+import { useEffect } from "react";
+import { useState } from "react";
+
+import styles from "./progressBar.module.css";
+import classNames from "classnames";
 
 export function ProgressBar() {
 	const [progressScrollBar, setProgressScrollBar] = useState(0); // 0 - значение прогрес-скролбара при открытии страницы.
@@ -16,20 +19,12 @@ export function ProgressBar() {
 	}, []);
 
 	return (
-		<div
-			style={{
-				position: 'fixed',
-				top: 0,
-				left: 0,
-				height: '16px',
-				width: "100%",
-			}}>
-			<div style={{
-				width: `${progressScrollBar}%`,
-				background: "red",
-				transition: '0.3s ease-out',
-				height: "100%"
-			}}></div>
+		<div className={classNames(styles.progressBar)}>
+			<div
+				className={classNames(styles.progressBarValue)}
+				style={{
+					width: `${progressScrollBar}%`
+				}}></div>
 		</div>
 	);
 };
