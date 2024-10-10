@@ -19,9 +19,7 @@ export function ProgressBar() {
 	}, []);
 
 	return (
-		<div
-			className={classNames(styles.progressBar)}
-		>
+		<div className={classNames(styles.progressBar)}>
 			<div
 				className={classNames(styles.progressBarValue)}
 				style={{

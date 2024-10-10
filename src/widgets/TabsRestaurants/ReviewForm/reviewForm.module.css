@@ -1,15 +1,3 @@
-.reviewForm{
-
-}
-
-.reviewFormTitle{
-	/* font-weight: 500;
-	font-size: 1.1rem;
-	margin: 0px 0px 16px 0px;
-	width: fit-content;
-	border-bottom: 2px solid; */
-}
-
 .reviewFormBody{
 	padding: calc(8px + 8 * ((100vw - 320px)/ 1600));
 	border: 1px solid;
@@ -19,17 +7,10 @@
 	margin: 0px 0px 18px 0px;
 }
 
-.reviewFormField{
-}
-
 .reviewFieldLabel{
 	font-size: 0.9em;
 	padding: 12px calc(6px + 6 * ((100vw - 320px)/ 1600));
 	border: 1px solid;
-}
-
-.reviewFieldInput{
-
 }
 
 .reviewFormCounter{
@@ -42,13 +23,6 @@
 	gap: 18px;
 }
 
-.reviewFormClear{
-
-}
-
-.reviewFormBtn{
-
-}
 
 @media(min-width: 1920px){
 	.reviewFormBody{

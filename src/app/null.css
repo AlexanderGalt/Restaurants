@@ -103,43 +103,13 @@ section{
 	position: relative;
 
 }
-/* [class$="Wrapper"], */
+
 .wrapper{
 	max-width: 1920px;
 	margin: 0px auto;
 	width: calc(100% - (40px + 160 * ((100vw - 360px) / 1080)) ); /*отступ .wrapper от краёв вьюпорта в мобайл и в десктопе*/
 }
-/* [class*="Title"]{
-	font-weight: 500;
-	font-size: 1.1rem;
-	margin: 0px 0px 16px 0px;
-	width: fit-content;
-	border-bottom: 2px solid;
-	color: #000;
-	text-transform: uppercase;
-} */
-/* [class$="Bg"]{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-} */
-/* [class$="Btn"]{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 4px;
-	color: #fff;
-	background: #000;
-	font-size: 24px;
-	line-height: 28px;
-	width: 216px;
-	height: 52px;
-	cursor: pointer;
-	text-transform: uppercase;
-	white-space: nowrap;
-} */
+
 .clearfix:after {
 	content: ".";
 	display: block;
