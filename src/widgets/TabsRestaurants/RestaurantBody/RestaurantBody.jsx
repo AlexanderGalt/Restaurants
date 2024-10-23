@@ -1,20 +1,17 @@
-import { RestaurantMenu } from "./RestaurantMenu/RestaurantMenu.jsx";
-import { RestaurantReviews } from "./RestaurantReviews.jsx";
+import { RestaurantMenu } from "../RestaurantMenu/RestaurantMenu.jsx";
+import { RestaurantReviews } from "../RestaurantReviews/RestaurantReviews.jsx";
 import { ReviewForm } from "../ReviewForm/ReviewForm.jsx";
+import styles from "./restaurantBody.module.css"
+import classNames from "classnames"
 
-export function Restaurant({ restaurantId, restaurantName, restaurantMenu, restaurantReviews }) {
+export function RestaurantBody({ restaurantId, restaurantName, restaurantMenu, restaurantReviews }) {
 	return ( // здесь условый рендеринг (restaurantData.name &&) не нужен, т.к. сюда всегда будут попадать "restaurantData", у которых есть имя, т.к. проверка на имя ресторана уже есть в заголовке таба.
-		<div
-			className="restaurant-item"
+		<div className={classNames(styles['restaurantsTabsBody'])}
 			key={restaurantId}
-			style={{
-				display: "flex",
-				flexDirection: "column",
-				gap: "100px",
-			}}>
-			<h2 className="restaurant-item__name">
+		>
+			<h3 className={classNames(styles.restaurantsTabsBodyName)}>
 				{restaurantName}
-			</h2>
+			</h3>
 			<RestaurantMenu menuData={restaurantMenu} />
 			<RestaurantReviews reviewsData={restaurantReviews} />
 			<ReviewForm />

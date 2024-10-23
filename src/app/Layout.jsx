@@ -1,6 +1,7 @@
-import { Header } from "../widgets/Header.jsx"
-import { Footer } from "../widgets/Footer.jsx"
-import { ProgressBar } from "../widgets/ProgressBar.jsx"
+import { Header } from "../widgets/Header/Header.jsx"
+import { Footer } from "../widgets/Footer/Footer.jsx"
+import { ProgressBar } from "../widgets/ProgressBar/ProgressBar.jsx"
+
 export function Layout({ children }) {
 	return (
 		<>

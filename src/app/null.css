@@ -1,0 +1,203 @@
+/* Обнуление */
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+aside,
+nav,
+footer,
+header,
+section{
+	display: block;
+}
+a,
+a:hover,
+a:visited {
+	text-decoration: none;
+	cursor: pointer;
+	color: inherit;
+}
+ul, ol{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+img{
+	vertical-align: top;
+	max-width: 100%;
+	max-height: 100%;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.ibg{ /* fls ibg. Для IE11 */
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+}
+.ibg img{
+	display: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+	color: #494949; /* указать текст заголовоков контента*/
+}
+p:not(:last-child){
+	margin: 0px 0px 24px 0px;
+}
+
+input,
+label{
+	display: block;
+	width: 100%;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit; /* если не указать наследование будет братся из юзер агента */
+	font-size: inherit; /* если не указать наследование будет братся из юзер агента */
+	color: inherit; /* если не указать наследование будет братся из юзер агента */
+	font-weight: inherit; /* если не указать наследование будет братся из юзер агента */
+	line-height: inherit; /* если не указать наследование будет братся из юзер агента */
+	letter-spacing: inherit; /* если не указать наследование будет братся из юзер агента */
+	background: none;
+	outline: 0;
+}
+*::placeholder{
+	line-height: inherit; /* !important наследуется кроме инпута */
+	color: inherit; /* !important если не указать наследование будет братся из юзер агента */
+}
+html,
+body {
+	height: 100%;
+	line-height: 1.32em; /* самое частоиспольземое значение сайта*/
+	font-weight: 400; /* самое частоиспольземое значение сайта*/
+	font-size: calc(12px + 4 * ((100vw - 320px)/ 1600));
+	color: #494949;
+	background-color: #fff; /* самое частоиспольземое значение сайта*/
+	font-family: Montserrat, sans-serif;
+	margin: 0;
+}
+body{
+	display: flex;
+	flex-direction: column;
+}
+main{
+	flex: 1 0 auto;
+	margin: calc(24px + 24 * ((100vw - 320px)/ 1600)) 0;
+}
+
+section{
+	position: relative;
+
+}
+
+.wrapper{
+	max-width: 1920px;
+	margin: 0px auto;
+	width: calc(100% - (40px + 160 * ((100vw - 360px) / 1080)) ); /*отступ .wrapper от краёв вьюпорта в мобайл и в десктопе*/
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	}
+
+@media(min-width: 1920px){
+	html,
+	body {
+		font-size: 16px;
+	}
+
+	main{
+		margin: 48px 0;
+	}
+}
+/*-END-NULL--------------------------------*/
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-Thin.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-Thin.woff) format('woff');
+	font-weight: 100;
+	font-style: normal
+}
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-ExtraLight.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-ExtraLight.woff) format('woff');
+	font-weight: 200;
+	font-style: normal
+}
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-Light.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-Light.woff) format('woff');
+	font-weight: 300;
+	font-style: normal
+}
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-Regular.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-Regular.woff) format('woff');
+	font-weight: 400;
+	font-style: normal
+}
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-Medium.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-Medium.woff) format('woff');
+	font-weight: 500;
+	font-style: normal
+}
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-SemiBold.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-SemiBold.woff) format('woff');
+	font-weight: 600;
+	font-style: normal
+}
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-Bold.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-Bold.woff) format('woff');
+	font-weight: 700;
+	font-style: normal
+}
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-ExtraBold.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-ExtraBold.woff) format('woff');
+	font-weight: 800;
+	font-style: normal
+}
+
+@font-face{
+	font-family: Montserrat;
+	font-display: swap;
+	src: url(assets/fonts/Montserrat/Montserrat-Black.woff2) format('woff2'), url(assets/fonts/Montserrat/Montserrat-Black.woff) format('woff');
+	font-weight: 900;
+	font-style: normal
+}
