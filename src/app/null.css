@@ -90,9 +90,10 @@ body {
 	font-family: Montserrat, sans-serif;
 	margin: 0;
 }
-body{
+#root{
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 }
 main{
 	flex: 1 0 auto;
@@ -101,7 +102,6 @@ main{
 
 section{
 	position: relative;
-
 }
 
 .wrapper{

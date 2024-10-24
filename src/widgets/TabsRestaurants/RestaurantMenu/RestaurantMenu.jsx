@@ -1,8 +1,11 @@
 import { MenuCounter } from "./MenuCounter.jsx";
 import styles from "./restaurantMenu.module.css"
 import classNames from "classnames"
+import { useAuthContext } from "../../../app/providers/AuthProvider.jsx"
 
 export function RestaurantMenu({ menuData }) {
+	const { authValue } = useAuthContext();
+
 	if (!menuData.length) {
 		return null
 	}
@@ -18,7 +21,8 @@ export function RestaurantMenu({ menuData }) {
 						data-ingredients={menuItem.ingredients}
 					>
 						{menuItem.name}
-						<MenuCounter />
+
+						{authValue.isAuth && <MenuCounter />}
 					</li>
 				))}
 			</ul>

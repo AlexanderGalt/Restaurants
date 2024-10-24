@@ -3,12 +3,21 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 4px;
-	color: #fff;
-	background: #000;
 	font-weight: 300;
 	width: 216px;
 	height: 42px;
 	cursor: pointer;
+	border: solid 1px #000;
 	text-transform: uppercase;
 	white-space: nowrap;
+	transition: all 0.25s ease-in-out 0s;
+}
+
+.button.dark{
+	color: #fff;
+	background: #000;
+}
+.button.light{
+	color: #000;
+	background: #fff;
 }

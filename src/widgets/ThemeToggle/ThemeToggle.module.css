@@ -1,0 +1,57 @@
+.themeToggle{
+	border-radius: 24px;
+	outline: solid 2px #000;
+	/* padding: 2px; */
+	width: 64px;
+	height: 32px;
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 6px;
+}
+
+.themeToggle.dark{
+	background: #000;
+}
+
+.themeToggle.light{
+	background: #fff;
+}
+
+.themeToggleMoonImg,
+.themeToggleSunImg{
+	width: 22px;
+	height: 22px;
+}
+
+.themeToggleLeft, .themeToggleRight{
+	width: 50%;
+	flex: 1 1 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.themeToggleCircle{
+	width: 32px;
+	height: 32px;
+	border-radius: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	transition: all 0.25s ease-in-out 0s;
+}
+
+.light .themeToggleCircle{
+	transform: translateX(-100%);
+	background: #000;
+}
+
+.dark .themeToggleCircle{
+	transform: translate(0, 0);
+	background: #fff;
+}

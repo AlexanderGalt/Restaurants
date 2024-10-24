@@ -21,6 +21,16 @@
 	transition: all ease-in-out .3s;
 	text-transform: none;
 }
+.dark .restaurantsTabsTitle{
+	color: #fff;
+	background: #000;
+}
+
+
+.light .restaurantsTabsTitle{
+	color: #000;
+	background: #fff;
+}
 
 .restaurantsTabsTitle:hover {
 	box-shadow: 1px 1px 1px 1px;
