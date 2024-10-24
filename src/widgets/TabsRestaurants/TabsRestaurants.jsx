@@ -1,8 +1,9 @@
 import { restaurants } from "../../../materials/mock.js";
 import { RestaurantBody } from "./RestaurantBody/RestaurantBody.jsx";
-import { useState } from 'react'
-import styles from "./tabsRestaurants.module.css"
-import classNames from "classnames"
+import { useState } from 'react';
+import styles from "./tabsRestaurants.module.css";
+import classNames from "classnames";
+import { useThemeContext } from "../../app/providers/ThemeProvider.jsx";
 
 export function TabsRestaurants() {
 	const startRestaurantTab = restaurants.find((restaurantItem) => restaurantItem.name); // на случай если ресторан с индексом 0 будет без имени, т.е. невалидный. Иначе, если удалить имя у первого ресторана, то первый рендер будет баганый (будет пустой таб).
@@ -10,12 +11,18 @@ export function TabsRestaurants() {
 	const [currId, setCurrId] = useState(startId);
 	const currRestaurantData = restaurants.find((restaurant) => restaurant.id === currId);
 
+	const { themeValue } = useThemeContext();
+
 	if (!restaurants.length) {
 		return null
 	}
 
+
 	return (
-		<div className={classNames("wrapper", styles['restaurantsTabs'])}>
+		<div className={classNames("wrapper", styles['restaurantsTabs'], {
+			[styles.light]: themeValue === "light",
+			[styles.dark]: themeValue === "dark"
+		})}>
 			<div className={classNames(styles['restaurantsTabsHeader'])}>
 				{
 					restaurants.map((restaurant) => !!restaurant.name && (

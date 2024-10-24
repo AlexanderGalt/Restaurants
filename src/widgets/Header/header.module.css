@@ -1,9 +1,14 @@
 .header {
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	flex: 0 0 100px;
 	height: calc(54px + 46 * ((100vw - 320px)/ 1600));
 	max-height: 100px;
 	border: solid 1px;
+}
+
+.headerWrapper{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

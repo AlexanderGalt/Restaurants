@@ -1,11 +1,17 @@
-import styles from "./header.module.css"
-import classNames from "classnames"
+import styles from "./header.module.css";
+import classNames from "classnames";
+import { ThemeToggle } from "../ThemeToggle/ThemeToggle.jsx";
+import { AuthButton } from "../AuthButton/AuthButton.jsx";
 
 export function Header() {
 	return (
 		<header
 			className={classNames(styles.header)}>
-			HEADER
+			<div className={"wrapper " + styles.headerWrapper}>
+				HEADER
+				<ThemeToggle />
+				<AuthButton />
+			</div>
 		</header>
 	)
 }
