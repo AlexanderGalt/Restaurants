@@ -1,4 +1,4 @@
-.restaurantsTabs {
+.restaurantsTabsWrapper {
 	display: flex;
 	flex-direction: column;
 }

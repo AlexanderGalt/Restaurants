@@ -7,7 +7,7 @@ export function Header() {
 	return (
 		<header
 			className={classNames(styles.header)}>
-			<div className={"wrapper " + styles.headerWrapper}>
+			<div className={styles.headerWrapper}>
 				HEADER
 				<ThemeToggle />
 				<AuthButton />

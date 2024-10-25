@@ -104,7 +104,7 @@ section{
 	position: relative;
 }
 
-.wrapper{
+[class*='Wrapper']{
 	max-width: 1920px;
 	margin: 0px auto;
 	width: calc(100% - (40px + 160 * ((100vw - 360px) / 1080)) ); /*отступ .wrapper от краёв вьюпорта в мобайл и в десктопе*/

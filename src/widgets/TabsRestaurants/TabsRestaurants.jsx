@@ -19,7 +19,7 @@ export function TabsRestaurants() {
 
 
 	return (
-		<div className={classNames("wrapper", styles['restaurantsTabs'], {
+		<div className={classNames(styles['restaurantsTabsWrapper'], {
 			[styles.light]: themeValue === "light",
 			[styles.dark]: themeValue === "dark"
 		})}>
