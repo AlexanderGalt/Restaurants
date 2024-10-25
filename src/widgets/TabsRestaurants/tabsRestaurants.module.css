@@ -1,4 +1,4 @@
-.restaurantsTabs {
+.restaurantsTabsWrapper {
 	display: flex;
 	flex-direction: column;
 }
@@ -20,6 +20,16 @@
 	cursor: pointer;
 	transition: all ease-in-out .3s;
 	text-transform: none;
+}
+.dark .restaurantsTabsTitle{
+	color: #fff;
+	background: #000;
+}
+
+
+.light .restaurantsTabsTitle{
+	color: #000;
+	background: #fff;
 }
 
 .restaurantsTabsTitle:hover {

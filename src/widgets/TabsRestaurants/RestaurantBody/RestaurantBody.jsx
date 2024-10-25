@@ -3,8 +3,11 @@ import { RestaurantReviews } from "../RestaurantReviews/RestaurantReviews.jsx";
 import { ReviewForm } from "../ReviewForm/ReviewForm.jsx";
 import styles from "./restaurantBody.module.css"
 import classNames from "classnames"
+import { useAuthContext } from "../../../app/providers/AuthProvider.jsx"
 
 export function RestaurantBody({ restaurantId, restaurantName, restaurantMenu, restaurantReviews }) {
+	const { authValue } = useAuthContext();
+
 	return ( // здесь условый рендеринг (restaurantData.name &&) не нужен, т.к. сюда всегда будут попадать "restaurantData", у которых есть имя, т.к. проверка на имя ресторана уже есть в заголовке таба.
 		<div className={classNames(styles['restaurantsTabsBody'])}
 			key={restaurantId}
@@ -14,10 +17,8 @@ export function RestaurantBody({ restaurantId, restaurantName, restaurantMenu, r
 			</h3>
 			<RestaurantMenu menuData={restaurantMenu} />
 			<RestaurantReviews reviewsData={restaurantReviews} />
-			<ReviewForm />
-			<ReviewForm />
-			<ReviewForm />
-			<ReviewForm />
+
+			{authValue.isAuth && <ReviewForm />}
 		</div >
 	)
 }

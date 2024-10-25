@@ -54,14 +54,10 @@ export function ReviewForm() {
 				</div>
 			</div>
 			<div className={classNames(styles.reviewFormBtns)}>
-				<Button
-					onClick={clearReviewForm}
-					className={classNames(styles.reviewFormClear, styles.reviewFormBtn)}>
+				<Button onClick={clearReviewForm} >
 					Очистить форму
 				</Button>
-				<Button
-					onClick={sendReviewForm}
-					className={classNames(styles.reviewFormBtn)}>
+				<Button onClick={sendReviewForm}>
 					Отправить отзыв
 				</Button>
 			</div>
