@@ -1,16 +1,20 @@
 import { Button } from "../../shared/Button/Button.jsx";
 import styles from "./AuthButton.module.css";
-import { useAuthContext } from "../../app/providers/AuthProvider.jsx"
+import { useDispatch, useSelector } from "react-redux";
+import { actionToggleAuth, selectAuthorization } from "../../app/redux/ui/AuthSlice.js";
+import { useCallback } from "react";
 
 export const AuthButton = () => {
-	const { doToggleAuth, authValue } = useAuthContext();
+	const dispatch = useDispatch();
+	const onClickCallback = useCallback(() => dispatch(actionToggleAuth()), [dispatch]);
+	const { isAuth, name } = useSelector(selectAuthorization);
 
 	return (
 		<Button
-			onClick={doToggleAuth}
+			onClick={onClickCallback}
 			className={styles.authButton}
 		>
-			{authValue.isAuth ? `${authValue.name} | LogOut` : "LogIn"}
+			{isAuth ? `${name} | LogOut` : "LogIn"}
 		</Button>
 	)
 }
