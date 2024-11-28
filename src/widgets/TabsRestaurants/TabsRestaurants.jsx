@@ -1,51 +1,43 @@
-import { restaurants } from "../../../materials/mock.js";
-import { RestaurantBody } from "./RestaurantBody/RestaurantBody.jsx";
 import { useState } from 'react';
 import styles from "./tabsRestaurants.module.css";
 import classNames from "classnames";
-import { useThemeContext } from "../../app/providers/ThemeProvider.jsx";
+import { useSelector } from "react-redux";
+import { firstValidRestaurants, selectRestaurantsAll } from "../../app/redux/entities/restaurants/restaurantsSelects.js";
+import { RestaurantBodyContainer } from "./RestaurantBody/RestaurantBodyContainer.jsx";
+import { TabsRestaurantsTitle } from './TabsRestaurantsTitle/TabsRestaurantsTitle.jsx';
 
 export function TabsRestaurants() {
-	const startRestaurantTab = restaurants.find((restaurantItem) => restaurantItem.name); // на случай если ресторан с индексом 0 будет без имени, т.е. невалидный. Иначе, если удалить имя у первого ресторана, то первый рендер будет баганый (будет пустой таб).
+	const restaurantsAll = useSelector(selectRestaurantsAll);
+
+	const startRestaurantTab = useSelector(firstValidRestaurants); // на случай если ресторан с индексом 0 будет без имени, т.е. невалидный. Иначе, если удалить имя у первого ресторана, то первый рендер будет баганый (будет пустой таб).
+
 	const startId = startRestaurantTab.id;
+
 	const [currId, setCurrId] = useState(startId);
-	const currRestaurantData = restaurants.find((restaurant) => restaurant.id === currId);
 
-	const { themeValue } = useThemeContext();
-
-	if (!restaurants.length) {
+	if (!restaurantsAll.length) {
 		return null
 	}
 
-
 	return (
-		<div className={classNames(styles['restaurantsTabsWrapper'], {
-			[styles.light]: themeValue === "light",
-			[styles.dark]: themeValue === "dark"
-		})}>
-			<div className={classNames(styles['restaurantsTabsHeader'])}>
+		<div className={styles['restaurantsTabsWrapper']}>
+			<div className={classNames(styles['restaurantsTabsHead'])}>
 				{
-					restaurants.map((restaurant) => !!restaurant.name && (
-						<button
+					restaurantsAll.map((restaurant) => !!restaurant.name && (
+						<TabsRestaurantsTitle
 							key={restaurant.id}
-							onClick={() => setCurrId(restaurant.id)}
-							className={
-								classNames(styles['restaurantsTabsTitle'], {
-									[styles['restaurantsTabsTitleActive']]: currId == restaurant.id
-								})
-							}
-							disabled={currId == restaurant.id ? true : false}
-						>{restaurant.name}</button>
+							restaurantId={restaurant.id}
+							currId={currId}
+							setCurrId={setCurrId}
+							name={restaurant.name}
+						/>
 					))
 				}
 			</div>
 
-			<RestaurantBody
-				restaurantId={currRestaurantData.id}
-				restaurantName={currRestaurantData.name}
-				restaurantMenu={currRestaurantData.menu}
-				restaurantReviews={currRestaurantData.reviews}
+			<RestaurantBodyContainer
+				id={currId}
 			/>
-		</div>
+		</div >
 	)
 }

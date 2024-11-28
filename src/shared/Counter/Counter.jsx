@@ -1,7 +1,7 @@
 import styles from "./counter.module.css"
 import classNames from "classnames"
 
-export function Counter({ counterValue, increment, decrement }) {
+export function Counter({ counterValue, increment, decrement, onChange }) {
 	return (
 		<div
 			className={classNames(styles.counter)}
@@ -11,9 +11,11 @@ export function Counter({ counterValue, increment, decrement }) {
 				onClick={increment}
 			>+</button>
 
-			<div className={classNames(styles.counterValue)}>
-				{counterValue}
-			</div>
+			<input
+				className={classNames(styles.counterValue)}
+				value={counterValue}
+				onChange={onChange}
+			></input>
 
 			<button
 				className={classNames(styles.counterBtn)}

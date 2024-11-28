@@ -1,0 +1,13 @@
+.restaurantMenuItem{
+	display: flex;
+	justify-content: space-between;
+	padding-bottom:  calc(0px + 10 * ((100vw - 320px)/ 1600));
+	border-bottom: 1px solid;
+	font-weight: 500;
+}
+
+@media(min-width: 1920px){
+	.restaurantMenuItem{
+		padding-bottom: 14px;
+	}
+}

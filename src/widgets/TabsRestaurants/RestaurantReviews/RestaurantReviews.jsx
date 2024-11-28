@@ -1,5 +1,6 @@
 import styles from "./restaurantReviews.module.css"
 import classNames from "classnames"
+import { RestaurantReviewsItem } from "./RestaurantReviewsItem/RestaurantReviewsItem.jsx"
 
 export function RestaurantReviews({ reviewsData }) {
 	if (!reviewsData.length) {
@@ -11,12 +12,10 @@ export function RestaurantReviews({ reviewsData }) {
 			<h4 className={classNames(styles.restaurantReviewsTitle)}>Отзывы</h4>
 			<ul className={classNames(styles.restaurantReviewsList)}>
 				{reviewsData.map(reviewsItem => (
-					<li
-						key={reviewsItem.id}
-						className={classNames(styles.restaurantReviewsItem)}
-						data-rating={reviewsItem.rating}
-						data-user={reviewsItem.user}
-					>{reviewsItem.text}</li>
+					<RestaurantReviewsItem
+						key={reviewsItem}
+						id={reviewsItem}
+					/>
 				))}
 			</ul>
 		</div>
