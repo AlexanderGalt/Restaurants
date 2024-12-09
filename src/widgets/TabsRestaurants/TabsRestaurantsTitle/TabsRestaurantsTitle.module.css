@@ -1,0 +1,17 @@
+
+.restaurantsTabsTitle {
+	height: calc(30px + 26 * ((100vw - 320px)/ 1600));
+	max-height: 56px;
+	flex: 1 1 auto;
+	text-transform: none;
+	border-radius: 0;
+}
+
+.restaurantsTabsTitle:hover {
+	box-shadow: 1px 1px 1px 1px;
+}
+
+.restaurantsTabsTitleActive {
+	pointer-events: none;
+	border: solid 1px red;
+}

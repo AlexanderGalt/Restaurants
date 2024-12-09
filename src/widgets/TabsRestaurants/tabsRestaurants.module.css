@@ -3,47 +3,14 @@
 	flex-direction: column;
 }
 
-.restaurantsTabsHeader {
+.restaurantsTabsHead {
 	display: flex;
 	gap: calc(10px + 6 * ((100vw - 320px)/ 1600));
 	margin: 0px 0px 12px 0px;
 }
 
-.restaurantsTabsTitle {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: calc(30px + 26 * ((100vw - 320px)/ 1600));
-	max-height: 56px;
-	flex: 1 1 auto;
-	border: solid 1px;
-	cursor: pointer;
-	transition: all ease-in-out .3s;
-	text-transform: none;
-}
-.dark .restaurantsTabsTitle{
-	color: #fff;
-	background: #000;
-}
-
-
-.light .restaurantsTabsTitle{
-	color: #000;
-	background: #fff;
-}
-
-.restaurantsTabsTitle:hover {
-	box-shadow: 1px 1px 1px 1px;
-}
-
-.restaurantsTabsTitleActive {
-	pointer-events: none;
-	border: solid 1px red;
-}
-
-
 @media(min-width: 1920px){
-	.restaurantsTabsHeader {
+	.restaurantsTabsHead {
 		gap: 16px;
 	}
 }

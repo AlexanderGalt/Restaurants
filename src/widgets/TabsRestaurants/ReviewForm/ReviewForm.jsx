@@ -6,7 +6,7 @@ import styles from "./reviewForm.module.css"
 import classNames from "classnames"
 
 export function ReviewForm() {
-	const { form, setName, setText, increment, decrement, sendReviewForm, clearReviewForm } = useReviewForm();
+	const { form, setName, setText, increment, decrement, onChangeRatingReview, sendReviewForm, clearReviewForm } = useReviewForm();
 
 	return (
 		<form
@@ -50,6 +50,7 @@ export function ReviewForm() {
 						counterValue={form.reviewRating}
 						increment={increment}
 						decrement={decrement}
+						onChange={onChangeRatingReview}
 					/>
 				</div>
 			</div>

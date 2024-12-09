@@ -1,9 +1,12 @@
 import styles from "./ThemeToggle.module.css";
 import classNames from "classnames";
-import { useThemeContext } from "../../app/providers/ThemeProvider.jsx"
+import { useDispatch, useSelector } from "react-redux";
+import { selectTheme, actionToggleTheme } from "../../app/redux/ui/themeSlice";
 
 export const ThemeToggle = () => {
-	const { doToggleTheme, themeValue } = useThemeContext();
+	const dispatch = useDispatch();
+	const doToggleTheme = () => dispatch(actionToggleTheme());
+	const { value: themeValue } = useSelector(selectTheme);
 
 	return (
 		<div

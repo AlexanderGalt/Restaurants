@@ -1,23 +1,33 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { actionDecrement, actionIncrement, actionSetAmount, selectCartProductById } from "../../../app/redux/ui/cartSlice";
 
-export function useMenuCounter() {
-	const [counterValue, setCounter] = useState(0);
+export function useMenuCounter(id) {
+	const dispatch = useDispatch();
+	const cartCounter = useSelector((state) => selectCartProductById(state, id)) || 0;
 
 	const increment = () => {
-		if (counterValue < 5) {
-			setCounter(counterValue + 1);
-		};
+		if (cartCounter < 9) dispatch(actionIncrement(id));
 	}
 
 	const decrement = () => {
-		if (counterValue > 0) {
-			setCounter(counterValue - 1);
-		}
+		if (cartCounter > 0) dispatch(actionDecrement(id));
+	};
+
+	const onChangeAmount = (e) => {
+		const newAmount = e.nativeEvent.data;
+		const isNumber = (value) => /^-?\d+(\.\d+)?$/.test(value);
+
+		if (
+			isNumber(newAmount) &&
+			newAmount >= 0 &&
+			newAmount <= 9
+		) dispatch(actionSetAmount({ id, newAmount }));
 	};
 
 	return {
-		counterValue,
+		cartCounter,
 		increment,
 		decrement,
+		onChangeAmount,
 	}
 };
