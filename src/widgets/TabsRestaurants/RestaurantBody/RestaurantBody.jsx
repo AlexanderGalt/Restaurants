@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectAuthorization } from "../../../app/redux/ui/AuthSlice.js";
+import { selectAuthorization } from "../../../app/redux/ui/authSlice";
 import { RestaurantMenu } from "../RestaurantMenu/RestaurantMenu.jsx";
 import { RestaurantReviews } from "../RestaurantReviews/RestaurantReviews.jsx";
 import { ReviewForm } from "../ReviewForm/ReviewForm.jsx";

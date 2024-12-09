@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { selectDishesById } from "../../../../app/redux/entities/dishes"
 import { MenuCounter } from "../MenuCounter";
 import styles from "./RestaurantMenuItem.module.css";
-import { selectAuthorization } from "../../../../app/redux/ui/AuthSlice";
+import { selectAuthorization } from "../../../../app/redux/ui/authSlice";
 
 export const RestaurantMenuItem = ({ id }) => {
 	const { isAuth } = useSelector(selectAuthorization);

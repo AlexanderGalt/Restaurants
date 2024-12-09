@@ -4,7 +4,6 @@ import { normalizedRestaurants } from "../../../../../assets/normalized-mock";
 export const restaurantsAdapter = createEntityAdapter();
 const initialState = restaurantsAdapter.getInitialState(null, normalizedRestaurants);
 
-
 export const restaurantsSlice = createSlice({
 	name: "restaurants",
 	initialState,

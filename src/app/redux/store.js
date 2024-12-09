@@ -3,7 +3,7 @@ import { restaurantsSlice } from "./entities/restaurants";
 import { dishesSlice } from "./entities/dishes";
 import { reviewsSlice } from "./entities/reviews";
 import { usersSlice } from "./entities/users";
-import { authSlice } from "./ui/AuthSlice";
+import { authSlice } from "./ui/authSlice";
 import { themeSlice } from "./ui/themeSlice";
 import { cartSlice } from "./ui/cartSlice";
 
