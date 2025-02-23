@@ -1,0 +1,20 @@
+.restaurantTabs{
+	padding: 14px;
+	border: 1px solid #000;
+}
+
+.restaurantTabsHead {
+	display: flex;
+	gap: calc(10px + 6 * ((100vw - 320px)/ 1600));
+}
+
+.restaurantTabsTitle {
+	font-size: 1.1rem;
+	margin: 0px 0px 16px 0px;
+	width: fit-content;
+	text-transform: uppercase;
+}
+
+.restaurantTabsTitle.active {
+	font-weight: 700;
+}
