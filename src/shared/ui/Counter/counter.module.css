@@ -1,0 +1,27 @@
+.counter{
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.counterValue{
+	font-weight: 600;
+	font-size: 16px;
+	max-width: 12px;
+	text-align: center;
+}
+
+.counterValue:focus{
+	outline: 1px solid;
+	caret-color: transparent
+}
+
+.counterBtn{
+	width: 1.2em;
+	height: 1.2em;
+	border: 1px solid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}

@@ -53,6 +53,10 @@ h6 {
 	font-size: inherit;
 	color: #494949; /* указать текст заголовоков контента*/
 }
+h2{
+	font-size: calc(24px + 20 * ((100vw - 320px)/ 1600));
+	margin: 0px 0px 24px 0px;
+}
 p:not(:last-child){
 	margin: 0px 0px 24px 0px;
 }
@@ -102,6 +106,10 @@ main{
 
 section{
 	position: relative;
+
+}
+section:not(:last-child){
+	margin: 0px auto calc(24px + 24 * ((100vw - 320px)/ 1600));
 }
 
 [class*='Wrapper']{
@@ -126,6 +134,12 @@ section{
 
 	main{
 		margin: 48px 0;
+	}
+	h2{
+		font-size: 44px;
+	}
+	section:not(:last-child){
+		margin: 0px auto 48px;
 	}
 }
 /*-END-NULL--------------------------------*/

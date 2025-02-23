@@ -1,4 +1,4 @@
-import { Button } from "../../shared/Button/Button.jsx";
+import { Button } from "../../shared/ui/Button/Button.jsx";
 import styles from "./AuthButton.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { actionToggleAuth, selectAuthorization } from "../../app/redux/ui/authSlice";
