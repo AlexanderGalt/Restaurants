@@ -1,0 +1,14 @@
+.restaurantReviewsItem {
+  border-bottom: solid 1px #000;
+}
+.restaurantReviewsItemtext {
+  font-size: calc(8px + 4 * ((100vw - 320px) / 1600));
+}
+.restaurantReviewsItemUser {
+  font-weight: 700;
+}
+@media (max-width: 1920px) {
+  .restaurantReviewsItemtext {
+    font-size: 12px;
+  }
+}

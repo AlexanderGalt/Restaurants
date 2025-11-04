@@ -1,12 +1,14 @@
-// import { TabsRestaurants } from "../widgets/TabsRestaurants/TabsRestaurants.jsx";
-import { Provider as ReduxProvider } from "react-redux";
-import { reduxStore } from "./redux/store";
 import { AppRouter } from "./routers/index.jsx";
+import { AppStore } from "./redux/index.jsx";
+import { ThemeProvider } from "./providers/ThemeProvider.jsx";
 
 export function App() {
-	return (
-		<ReduxProvider store={reduxStore}>
-			<AppRouter />
-		</ReduxProvider >
-	)
+  return (
+    <AppStore>
+      <AppRouter />
+    </AppStore>
+  );
 }
+/* <ReduxProvider store={reduxStore}>
+			<AppRouter />
+		</ReduxProvider > */

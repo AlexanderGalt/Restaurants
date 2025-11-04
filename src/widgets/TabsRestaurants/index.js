@@ -1,1 +1,0 @@
-export { TabsRestaurants } from './ui';

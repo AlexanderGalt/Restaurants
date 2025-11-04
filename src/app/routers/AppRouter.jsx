@@ -1,64 +1,110 @@
 import { Layout } from "../Layout.jsx";
 import { HomePage } from "../../pages/home";
-import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { NotFoundPage } from "../../pages/notFound";
-import { RestaurantMenu } from "../../widgets/TabsRestaurants/ui/RestaurantsTabsBody/RestaurantTabs/RestaurantMenu/RestaurantMenu.jsx";
-import { RestaurantReviews } from "../../widgets/TabsRestaurants/ui/RestaurantsTabsBody/RestaurantTabs/RestaurantReviews/RestaurantReviews.jsx";
-import { RestaurantsTabsBodyContainer } from "../../widgets/TabsRestaurants/ui/RestaurantsTabsBody/RestaurantsTabsBodyContainer.jsx";
-import { RestaurantsTabsBodyDefault } from "../../widgets/TabsRestaurants/ui/RestaurantsTabsBody/RestaurantTabs/RestaurantsTabsBodyDefault/RestaurantsTabsBodyDefault.jsx";
+import { RestaurantMenu } from "../../widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantTabs/RestaurantMenu/RestaurantMenu.jsx";
+import { RestaurantReviews } from "../../widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantTabs/RestaurantReviews/RestaurantReviews.jsx";
+import { RestaurantsTabsBodyContainer } from "../../widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantsTabsBodyContainer.jsx";
+import { Test } from "../../pages/Test.jsx";
+import { RestaurantsTabsBodyDefault } from "../../widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantsTabsBodyDefault/RestaurantsTabsBodyDefault.jsx";
+// import { Test } from "../../pages/Test.jsx";
+// import { getFallbackPage } from "./lib/getFallbackPage.jsx";
+import { LazyPage } from "./lib/LazyPage.jsx";
 
 const router = createBrowserRouter([
-	{
-		path: "/", // это указывается только для лучшей читаемости кода, без указания этого проперти будет всё так же хорошо работать.
-		element: <Layout />,
-		handle: {
-			breadcrumbTitle: "Главная",
-		},
-		errorElement: <Layout><NotFoundPage /></Layout>,
-		children: [
-			{
-				index: true,
-				id: "home",
-				element: <HomePage />
-			},
-			{
-				path: "restaurants",
-				id: "restaurants",
-				lazy: async () => import("../../pages/restaurants"),
-				handle: {
-					breadcrumbTitle: "Рестораны",
-				},
-				children: [
-					{
-						path: ":restaurantId?",
-						element: <RestaurantsTabsBodyContainer />,
-						children: [
-							{
-								index: true,
-								element: <RestaurantsTabsBodyDefault />
-							},
-							{
-								path: "menu",
-								element: <RestaurantMenu />,
-							},
-							{
-								path: "reviews",
-								element: <RestaurantReviews />,
-							}
-						]
-					}
-				]
-			},
-			{
-				path: "dish/:dishId", // указываю роктерские параметры тут же, т.к. на этой станице нет никаких своих инструментов навигации (ссылок).
-				id: "dish",
-				lazy: async () => import("../../pages/dish"),
-			},
-		]
-	}
+  {
+    path: "/", // это указывается только для лучшей читаемости кода, без указания этого проперти будет всё так же хорошо работать.
+    element: <Layout />,
+    handle: {
+      breadcrumbTitle: "Главная",
+    },
+    errorElement: (
+      <Layout>
+        <NotFoundPage />
+      </Layout>
+    ),
+    children: [
+      {
+        index: true,
+        id: "home",
+        element: <HomePage />,
+      },
+      {
+        path: "restaurant/:restaurantId?",
+        id: "restaurant",
+        lazy: async () => import("../../pages/restaurant"),
+        handle: {
+          breadcrumbTitle: "Ресторан",
+        },
+      },
+      {
+        path: "restaurants",
+        id: "restaurants",
+        lazy: async () => import("../../pages/restaurants"),
+        handle: {
+          breadcrumbTitle: "Рестораны",
+        },
+        children: [
+          {
+            path: ":restaurantId?",
+            element: <RestaurantsTabsBodyContainer />,
+            children: [
+              {
+                index: true,
+                element: <RestaurantsTabsBodyDefault />,
+              },
+              {
+                path: "menu",
+                element: <RestaurantMenu />,
+              },
+              {
+                path: "reviews",
+                element: <RestaurantReviews />,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        path: "dish/:dishId", // указываю роутерские параметры тут же, т.к. на этой станице нет никаких своих инструментов навигации (ссылок).
+        id: "dish",
+        lazy: async () => import("../../pages/dish"),
+      },
+      {
+        path: "test",
+
+        // lazy: async () => new Promise((res) => setTimeout(async () => res(await import("../../pages/Test.jsx")), 1_000)),
+
+        // lazy() {
+        //   const modulePromise = import("../../pages/Test.jsx").then(
+        //     async (result) =>
+        //       new Promise((resolve) => {
+        //         setTimeout(() => resolve(result), 0);
+        //       }),
+        //   );
+
+        //   return {
+        //     element: <LazyPage {...{ modulePromise }} pageComponentName="Component" fallback="Загрузка страницы теста ..." />,
+        //   };
+        // },
+
+        loader: async ({ request }) => {
+          return {
+            loaderData: new Promise((res) =>
+              setTimeout(() => (console.log("Выполнение loaderR", request), res("Ретурн loaderR")), 5_000),
+            ),
+          };
+        },
+
+        // loader: async ({ request }) =>
+        //   new Promise((res) => setTimeout(() => (console.log("Выполнение loaderR", request), res("Ретурн loaderR")), 3_000)),
+        element: <Test />,
+      },
+    ],
+  },
 ]);
 
-export const AppRouter = () => <RouterProvider router={router} />
+export const AppRouter = () => <RouterProvider router={router} />;
 
 // для примера компонентного роутера:
 // export const AppRouter = () => (<BrowserRouter >

@@ -6,15 +6,17 @@ import { usersSlice } from "./entities/users";
 import { authSlice } from "./ui/authSlice";
 import { themeSlice } from "./ui/themeSlice";
 import { cartSlice } from "./ui/cartSlice";
+import { requestsSlice } from "./ui/requestsSlice";
 
 export const reduxStore = configureStore({
-	reducer: {
-		[restaurantsSlice.name]: restaurantsSlice.reducer,
-		[dishesSlice.name]: dishesSlice.reducer,
-		[reviewsSlice.name]: reviewsSlice.reducer,
-		[usersSlice.name]: usersSlice.reducer,
-		[authSlice.name]: authSlice.reducer,
-		[themeSlice.name]: themeSlice.reducer,
-		[cartSlice.name]: cartSlice.reducer,
-	}
+  reducer: {
+    [restaurantsSlice.name]: restaurantsSlice.reducer,
+    [dishesSlice.name]: dishesSlice.reducer,
+    [reviewsSlice.name]: reviewsSlice.reducer,
+    [usersSlice.name]: usersSlice.reducer,
+    [authSlice.name]: authSlice.reducer,
+    [themeSlice.name]: themeSlice.reducer,
+    [cartSlice.name]: cartSlice.reducer,
+    [requestsSlice.name]: requestsSlice.reducer,
+  },
 });

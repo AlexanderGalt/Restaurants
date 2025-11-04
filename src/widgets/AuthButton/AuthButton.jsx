@@ -5,16 +5,12 @@ import { actionToggleAuth, selectAuthorization } from "../../app/redux/ui/authSl
 import { useCallback } from "react";
 
 export const AuthButton = () => {
-	const dispatch = useDispatch();
-	const onClickCallback = useCallback(() => dispatch(actionToggleAuth()), [dispatch]);
-	const { isAuth, name } = useSelector(selectAuthorization);
-
-	return (
-		<Button
-			onClick={onClickCallback}
-			className={styles.authButton}
-		>
-			{isAuth ? `${name} | LogOut` : "LogIn"}
-		</Button>
-	)
-}
+  const dispatch = useDispatch();
+  const onClickCallback = useCallback(() => dispatch(actionToggleAuth()), [dispatch]);
+  const { isAuth, name } = useSelector(selectAuthorization);
+  return (
+    <Button onClick={onClickCallback} className={styles.authButton}>
+      {isAuth ? `${name} | LogOut` : "LogIn"}
+    </Button>
+  );
+};

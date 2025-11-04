@@ -1,0 +1,1 @@
+export { RestaurantsTabs } from "./RestaurantsTabs.jsx";
