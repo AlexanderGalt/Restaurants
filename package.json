@@ -11,7 +11,7 @@
     "start-server": "node materials/simple_api/server.js"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.3.0",
+    "@reduxjs/toolkit": "^2.11.0",
     "axios": "^1.12.2",
     "classnames": "^2.5.1",
     "react": "^19.1.0",

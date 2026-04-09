@@ -1,9 +1,9 @@
 import styles from "./header.module.css";
 import classNames from "classnames";
-import { ThemeToggle } from "../ThemeToggle/ThemeToggle.jsx";
-import { AuthButton } from "../AuthButton/AuthButton.jsx";
+import { ThemeToggle } from "@widgets/ThemeToggle/ThemeToggle.jsx";
+import { AuthButton } from "@widgets/AuthButton/AuthButton.jsx";
 import { NavLink } from "react-router-dom";
-import { Clock } from "../../shared/ui/Clock";
+import { Clock } from "@shared/ui/Clock";
 
 export function Header() {
   return (

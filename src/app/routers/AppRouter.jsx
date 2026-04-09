@@ -1,12 +1,12 @@
 import { Layout } from "../Layout.jsx";
-import { HomePage } from "../../pages/home";
+import { HomePage } from "@pages/home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { NotFoundPage } from "../../pages/notFound";
-import { RestaurantMenu } from "../../widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantTabs/RestaurantMenu/RestaurantMenu.jsx";
-import { RestaurantReviews } from "../../widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantTabs/RestaurantReviews/RestaurantReviews.jsx";
-import { RestaurantsTabsBodyContainer } from "../../widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantsTabsBodyContainer.jsx";
-import { Test } from "../../pages/Test.jsx";
-import { RestaurantsTabsBodyDefault } from "../../widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantsTabsBodyDefault/RestaurantsTabsBodyDefault.jsx";
+import { NotFoundPage } from "@pages/notFound";
+import { RestaurantMenu } from "@widgets/RestaurantMenu/RestaurantMenu.jsx";
+import { RestaurantReviews } from "@widgets/RestaurantReviews/RestaurantReviews.jsx";
+import { RestaurantsTabsBodyContainer } from "@widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantsTabsBodyContainer.jsx";
+import { Test } from "@pages/Test.jsx";
+import { RestaurantsTabsBodyDefault } from "@widgets/RestaurantsTabs/ui/RestaurantsTabsBody/RestaurantsTabsBodyDefault.jsx";
 // import { Test } from "../../pages/Test.jsx";
 // import { getFallbackPage } from "./lib/getFallbackPage.jsx";
 import { LazyPage } from "./lib/LazyPage.jsx";
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "restaurant/:restaurantId?",
+        path: "restaurant/:restaurantId",
         id: "restaurant",
         lazy: async () => import("../../pages/restaurant"),
         handle: {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <RestaurantsTabsBodyDefault />,
+                element: <RestaurantsTabsBodyDefault RestaurantMenu={RestaurantMenu} RestaurantReviews={RestaurantReviews} />,
               },
               {
                 path: "menu",
@@ -91,7 +91,8 @@ const router = createBrowserRouter([
         loader: async ({ request }) => {
           return {
             loaderData: new Promise((res) =>
-              setTimeout(() => (console.log("Выполнение loaderR", request), res("Ретурн loaderR")), 5_000),
+              //   setTimeout(() => (console.log("Выполнение loaderR", request), res("Ретурн loaderR")), 5_000),
+              setTimeout(() => res("Ретурн loaderR"), 0),
             ),
           };
         },

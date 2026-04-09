@@ -2,7 +2,7 @@ import styles from "./restaurantsTabs.module.css";
 
 import classNames from "classnames";
 import { useSelector } from "react-redux";
-import { selectFirstValidRestaurant, selectRestaurantsIds } from "../../../app/redux/entities/restaurants/index.js";
+import { selectFirstValidRestaurant, selectRestaurantsIds } from "/src/entities/restaurant";
 import { RestaurantsTabsTitle } from "./RestaurantsTabsTitle/RestaurantsTabsTitle.jsx";
 import { useParams, Outlet, Link } from "react-router-dom";
 

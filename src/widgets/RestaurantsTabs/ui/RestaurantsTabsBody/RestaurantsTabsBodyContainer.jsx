@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
-import { selectRestaurantsById } from "../../../../app/redux/entities/restaurants";
+import { useSelector } from "react-redux";
+import { selectRestaurantById } from "@entities/restaurant";
 import { RestaurantsTabsBody } from "./RestaurantsTabsBody";
 import { useOutletContext } from "react-router-dom";
 
 export const RestaurantsTabsBodyContainer = () => {
   const { currentId: restaurantId } = useOutletContext();
 
-  const restaurantData = useSelector((state) => selectRestaurantsById(state, restaurantId));
+  const restaurantData = useSelector((state) => selectRestaurantById(state, restaurantId));
 
   return (
     <RestaurantsTabsBody

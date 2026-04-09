@@ -1,7 +1,7 @@
-import { Breadcrumbs } from "../../../widgets/Breadcrumbs/Breadcrumbs";
-import { RestaurantsTabs } from "../../../widgets/RestaurantsTabs";
-import { getRestaurants } from "../../../app/redux/entities/restaurants";
-import { useRequest } from "../../../app/redux/ui/requestsSlice/index";
+import { useRequest } from "@shared/api/requestsStatus";
+import { Breadcrumbs } from "@widgets/Breadcrumbs/Breadcrumbs";
+import { RestaurantsTabs } from "@widgets/RestaurantsTabs";
+import { getRestaurants } from "@entities/restaurant";
 
 export const RestaurantsPage = () => {
   const requestStatus = useRequest(getRestaurants);

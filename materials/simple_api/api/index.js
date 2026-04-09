@@ -16,6 +16,11 @@ router.get("/restaurant/:restaurantId", (req, res, next) => {
     restaurant = getById(restaurants)(restaurantId);
   }
 
+  //   if (Math.random() > 0.5) {
+  //     reply(res, 123);
+  //   } else {
+  //     reply(res, restaurant);
+  //   }
   reply(res, restaurant);
 });
 

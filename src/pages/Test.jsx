@@ -1,56 +1,63 @@
-import { Component, lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
-import { Await, useLoaderData } from "react-router-dom";
-import { use } from "react";
-import { ThemeContext } from "../app/providers/ThemeProvider";
+import { useEffect, useState } from "react";
+console.log("Тест");
+const C = () => {
+  console.log("Рендер 'C'");
 
-// var result = null;
-// const promise = new Promise((res, rej) => setTimeout(() => res("Результат помиса"), 3_000)).then((r) => (result = r));
+  useEffect(() => {
+    console.log("Эффект 'С'");
 
-const Comp = () => {
-  //   if (!result) throw promise;
-  //   return result;
-  const { loaderData: promise } = useLoaderData();
-
-  //   const promise = new Promise((res, rej) => setTimeout(() => res("Результат помиса"), 5_000));
-  console.log(promise);
-
-  if (2 > 1) {
-    var result = use(promise);
-    var result2 = use(ThemeContext);
-  }
-  console.log(result);
-  console.log(result2);
-
-  return result;
-};
-
-export const Test = ({ pageData }) => {
-  //   const loaderData = useLoaderData();
-
-  //   const lc = <Comp />;
-  //   console.dir(lc);
-
-  //   const LazyCompFromReactLazy = lazy(
-  //     () =>
-  //       new Promise((res, rej) =>
-  //         setTimeout(
-  //           () =>
-  //             res({
-  //               default: function Comp() {
-  //                 return "qweqwe123";
-  //               },
-  //             }),
-  //           5_000,
-  //         ),
-  //       ),
-  //   );
-  //   console.log(LazyCompFromReactLazy);
+    return () => console.log("CleanUp 'C'");
+  }); // т.к. массив зависимостей не указан, эффект будет выполняться при каждом ререндере.
 
   return (
-    //<LazyCompFromReactLazy />
-    <Suspense fallback="...">
-      <Comp />
-    </Suspense>
+    <>
+      <div>123</div>
+    </>
+  );
+};
+
+const B = () => {
+  console.log("Рендер 'B'");
+
+  useEffect(() => {
+    console.log("Эффект 'B'");
+
+    return () => console.log("CleanUp 'B'");
+  }); // т.к. массив зависимостей не указан, эффект будет выполняться при каждом ререндере.
+
+  return <C />;
+};
+
+const A = () => {
+  const [value, setValue] = useState();
+
+  console.log("Рендер 'A'");
+
+  useEffect(() => {
+    console.log("Эффект 'A'");
+
+    return () => console.log("CleanUp 'A'");
+  }); // т.к. массив зависимостей не указан, эффект будет выполняться при каждом ререндере.
+
+  return (
+    <>
+      <button onClick={() => setValue((value) => !value)}>Ререндер</button>
+      <br />
+      <B />
+    </>
+  );
+};
+
+export const Test = () => {
+  const [isShow, setValue] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setValue((isShow) => !isShow)}>Маунт/анмаунт</button>
+      <br />
+      {/* {isShow ? <A /> : ""} */}
+      {isShow && <A />}
+    </>
   );
 };
 

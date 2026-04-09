@@ -1,6 +1,5 @@
-import { AppRouter } from "./routers/index.jsx";
-import { AppStore } from "./redux/index.jsx";
-import { ThemeProvider } from "./providers/ThemeProvider.jsx";
+import { AppRouter } from "./routers";
+import { AppStore } from "./providers/AppStore.jsx";
 
 export function App() {
   return (
@@ -9,6 +8,3 @@ export function App() {
     </AppStore>
   );
 }
-/* <ReduxProvider store={reduxStore}>
-			<AppRouter />
-		</ReduxProvider > */

@@ -3,7 +3,7 @@ import { Footer } from "../widgets/Footer/Footer.jsx";
 import { ProgressBar } from "../widgets/ProgressBar/ProgressBar.jsx";
 import { Cart } from "../widgets/Cart/Cart.jsx";
 import { useSelector } from "react-redux";
-import { selectAuthorization } from "./redux/ui/authSlice";
+import { selectAuthorization } from "../features/authorization/index.js";
 import { Outlet } from "react-router-dom";
 import { Loading } from "../shared/ui/Loading";
 

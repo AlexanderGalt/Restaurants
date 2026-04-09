@@ -1,17 +1,19 @@
 import { useSelector } from "react-redux";
-import { selectAuthorization } from "../../../../app/redux/ui/authSlice/index.js";
-import { ReviewForm } from "../ReviewForm/ReviewForm.jsx";
+import { selectAuthorization } from "@features/authorization/index.js";
 import styles from "./RestaurantsTabsBody.module.css";
 import { RestaurantTabs } from "./RestaurantTabs/RestaurantTabs.jsx";
+import { ReviewForm } from "@features/addReview";
 
 export function RestaurantsTabsBody({ restaurantId, restaurantName, restaurantMenuData, restaurantReviewsData }) {
   const { isAuth } = useSelector(selectAuthorization);
-  
+
   return (
     <div className={styles["restaurantsTabsBody"]}>
       <h3 className={styles.restaurantsTabsBodyName}>{restaurantName}</h3>
+
       <RestaurantTabs {...{ restaurantId, restaurantMenuData, restaurantReviewsData }} />
-      {isAuth && <ReviewForm />}
+
+      {isAuth && <ReviewForm {...{ restaurantId }} />}
     </div>
   );
 }
