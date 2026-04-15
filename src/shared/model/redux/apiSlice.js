@@ -1,27 +1,18 @@
-// import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// export const apiSlice = createApi({
-//   reducerPath: "api",
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: "http://localhost:3000",
-//   }),
-//   endpoints: (builder) => ({
-//     updatePost: builder.mutation({
-//       query(queryArg) {
-//         return { url: "?qwe", body: queryArg, method: "POST" };
-//       },
-//     }),
-//   }),
-// });
-
-// export const {
-//   useGetRestaurantsQuery,
-//   useLazyGetRestaurantQuery,
-//   useQweQuery,
-//   useGetRestaurantQuery,
-//   useUpdatePostMutation,
-//   useGetPagesInfiniteQuery,
-// } = apiSlice;
+export const apiSlice = createApi({
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "http://localhost:3001/api/",
+  }),
+  endpoints: () => ({
+    //   updatePost: builder.mutation({
+    //     query(queryArg) {
+    //       return { url: "?qwe", body: queryArg, method: "POST" };
+    //     },
+    //   }),
+  }),
+});
 
 // export const {
 //   useQuerySubscription: useGetRestaurantQuerySubscription,

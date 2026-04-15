@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { Breadcrumbs } from "@widgets/Breadcrumbs";
-import { getRestaurantById, selectRestaurantById } from "@entities/restaurant";
 import { useSelector } from "react-redux";
 import { useRequest } from "@shared/api/requestsStatus";
+import { getRestaurantById } from "@entities/restaurant/api/getRestaurantById";
+import { selectRestaurantById } from "@entities/restaurant";
 
 export const RestaurantPage = () => {
   const { restaurantId } = useParams();

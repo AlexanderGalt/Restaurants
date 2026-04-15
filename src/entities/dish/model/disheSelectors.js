@@ -1,7 +1,5 @@
-import { createEntityAdapter, createSelector } from "@reduxjs/toolkit";
-// import { dishesAdapter } from "./dishesSlice";
-
-export const dishesAdapter = createEntityAdapter();
+import { createSelector } from "@reduxjs/toolkit";
+import { dishesAdapter } from "./dishesAdapter";
 
 const selectDishesData = (state) => state.dishes;
 
