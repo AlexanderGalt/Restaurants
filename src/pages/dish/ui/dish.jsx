@@ -2,13 +2,11 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { MenuCounter } from "../../../widgets/RestaurantMenu/MenuCounter";
 import { selectAuthorization } from "../../../features/authorization";
-import { useRequest } from "../../../shared/api/requestsStatus/index";
-import { getDishesById, selectDisheById } from "../../../entities/dish";
+import { useGetDishByIdQuery } from "@entities/dish";
 
 export const DishPage = () => {
   const { dishId } = useParams();
-  const dishDataStatus = useRequest(getDishesById, dishId);
-  const dishData = useSelector((state) => selectDisheById(state, dishId));
+  const { data: dishData, status: dishDataStatus } = useGetDishByIdQuery(dishId);
   const { isAuth } = useSelector(selectAuthorization);
 
   if (dishDataStatus === "pending") return "Loading ...";

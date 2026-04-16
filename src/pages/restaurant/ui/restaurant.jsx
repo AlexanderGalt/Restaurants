@@ -1,24 +1,21 @@
 import { useParams } from "react-router-dom";
 import { Breadcrumbs } from "@widgets/Breadcrumbs";
-import { useSelector } from "react-redux";
-import { useRequest } from "@shared/api/requestsStatus";
-import { getRestaurantById } from "@entities/restaurant/api/getRestaurantById";
-import { selectRestaurantById } from "@entities/restaurant";
+import { useGetRestaurantByIdQuery } from "@entities/restaurant/api/restaurantApi";
 
 export const RestaurantPage = () => {
   const { restaurantId } = useParams();
-  const requestStatus = useRequest(getRestaurantById, restaurantId);
-  const requestData = useSelector((state) => selectRestaurantById(state, restaurantId));
 
-  if (requestStatus === "pending") return "loading";
+  const { status, data } = useGetRestaurantByIdQuery(restaurantId);
 
-  if (requestStatus === "rejected") return "Ошибка загрузки данных ресторана: " + restaurantId;
+  if (status === "pending") return "loading";
+
+  if (status === "rejected") return "Ошибка загрузки данных всех ресторанов";
 
   return (
     <>
-      <Breadcrumbs name={requestData?.name} />
+      <Breadcrumbs name={data?.name} />
       <div className="Wrapper">
-        <span>"Страница ресторана" + {requestData?.name}</span>
+        <span>"Страница ресторана" + {data?.name}</span>
         <div>Наполнение станицы ондого ресторана</div>
       </div>
     </>

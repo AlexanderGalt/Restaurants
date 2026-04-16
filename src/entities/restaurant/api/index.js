@@ -1,1 +1,1 @@
-export { useGetRestaurantsQuery, useGetRestaurantQuery } from "./restaurant.api";
+export { useGetRestaurantsQuery, useGetRestaurantByIdQuery } from "./restaurantApi";

@@ -1,4 +1,4 @@
-export { restaurantApi } from "./api/restaurant.api";
+export { restaurantApi } from "./api/restaurantApi";
 
 // selectors
 export {
@@ -7,3 +7,5 @@ export {
   selectFirstValidRestaurant,
   selectRestaurantsAll,
 } from "./model/restaurantSelectors.js";
+
+export { useGetRestaurantsQuery, useGetRestaurantByIdQuery } from "./api";

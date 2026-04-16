@@ -1,4 +1,4 @@
-import { restaurantApi } from "../api/restaurant.api";
+import { restaurantApi } from "../api/restaurantApi";
 import { restaurantInitialState, restaurantsAdapter } from "./restaurantsAdapter";
 
 const selectRestaurantsResult = restaurantApi.endpoints.getRestaurants.select();
