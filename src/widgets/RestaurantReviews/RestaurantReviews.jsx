@@ -26,6 +26,7 @@ export const RestaurantReviews = () => {
         {reviewsDishesData.map((reviewsItemData) => (
           <RestaurantReviewsItem
             key={reviewsItemData.id}
+            reviewId={reviewsItemData.id}
             reviewAuthorId={reviewsItemData.userId}
             reviewText={reviewsItemData.text}
           />

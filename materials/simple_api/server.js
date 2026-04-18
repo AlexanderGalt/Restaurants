@@ -22,3 +22,4 @@ app.listen(port, "localhost", function (err) {
 
   console.log("Listening at http://localhost:" + port);
 });
+app.use(express.json()); // <-- обязательно

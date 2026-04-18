@@ -1,3 +1,18 @@
+.reviewEditButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.reviewEditButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: #777777;
+  color: #000;
+  padding: 8px 12px;
+}
+
 .restaurantReviewsItem {
   border-bottom: solid 1px #000;
 }
