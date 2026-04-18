@@ -5,12 +5,23 @@ import styles from "./reviewForm.module.css";
 import classNames from "classnames";
 
 export const ReviewForm = ({ restaurantId }) => {
-  //   console.log(restaurantId);
-  const { form, setName, setText, increment, decrement, onChangeRatingReview, sendReviewForm, clearReviewForm } = useReviewForm();
+  const {
+    form,
+    setName,
+    setText,
+    increment,
+    decrement,
+    onChangeRatingReview,
+    sendReviewForm,
+    clearReviewForm,
+    sendReviewResult,
+  } = useReviewForm(restaurantId);
 
   return (
     <form className={classNames(styles.reviewForm)} onSubmit={(e) => e.preventDefault()}>
       <h4 className={classNames(styles.reviewFormTitle)}>Форма отзыва</h4>
+      {sendReviewResult.isLoading && "Loading"}
+      {sendReviewResult.error && sendReviewResult.error.error}
       <div className={classNames(styles.reviewFormBody)}>
         <div className={classNames(styles.reviewFormField)}>
           <label className={classNames(styles.reviewFieldLabel)}>

@@ -1,20 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { reduxStore, rootReducer } from "../../../shared/model/redux/store";
+import { reduxStore, rootReducer } from "@shared/model/redux/store";
+
+const authInitialState = { isAuth: false };
 
 export const authSlice = createSlice({
   name: "authorization",
-  initialState: {
-    isAuth: false,
-    name: null,
-  },
+  initialState: authInitialState,
   reducers: {
     actionToggleAuth(state) {
       if (state.isAuth) {
-        state.isAuth = false;
-        state.name = null;
+        return authInitialState;
       } else {
         state.isAuth = true;
-        state.name = "someName";
+        state.name = "Antony";
+        state.id = "a304959a-76c0-4b34-954a-b38dbf310360";
       }
     },
   },

@@ -1,7 +1,7 @@
 import styles from "./ThemeToggle.module.css";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, actionToggleTheme } from "../../shared/config/theme";
+import { selectTheme, actionToggleTheme } from "@shared/config/theme";
 
 export const ThemeToggle = () => {
   const dispatch = useDispatch();

@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
-import { selectDisheById } from "/src/entities/dish";
+import { useGetDishByIdQuery } from "@entities/dish";
 
 export const CartItem = ({ id, amount }) => {
-  const { name: cartItemName } = useSelector((state) => selectDisheById(state, id), [id]);
+  const { data: dishData } = useGetDishByIdQuery(id);
 
-  return <span className="cartItem">{`${cartItemName}: ${amount}`}</span>;
+  return <span className="cartItem">{`${dishData?.name}: ${amount}`}</span>;
 };

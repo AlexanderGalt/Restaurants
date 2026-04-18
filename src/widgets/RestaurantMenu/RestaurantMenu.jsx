@@ -2,19 +2,20 @@ import styles from "./restaurantMenu.module.css";
 import classNames from "classnames";
 import { RestaurantMenuItem } from "./RestaurantMenuItem/RestaurantMenuItem.jsx";
 import { useOutletContext } from "react-router-dom";
-import { useRequest } from "@shared/api/requestsStatus/index";
-import { getDishesByRestaurantId, selectDishesByIds } from "@entities/dish";
-import { useSelector } from "react-redux";
+import { useGetDishesByRestaurantIdQuery } from "@entities/dish/api/dishApi";
 
 export const RestaurantMenu = () => {
   const { restaurantId, restaurantMenuData } = useOutletContext();
-  const menuDataStatus = useRequest(getDishesByRestaurantId, restaurantId);
-  const menuDishesData = useSelector((state) => selectDishesByIds(state, restaurantMenuData));
+  const { status: menuDataStatus, data: menuDishesData } = useGetDishesByRestaurantIdQuery(restaurantId);
 
   if (menuDataStatus === "pending") return "Loading ...";
 
-  if (!menuDishesData?.length) {
-    return `Блюда не загрузились`;
+  if (!restaurantMenuData.length) {
+    return `У этого ресторана нет блюд`;
+  }
+
+  if (!menuDishesData.length) {
+    return `Блюда текущего ресторана не загрузились`;
   }
 
   return (

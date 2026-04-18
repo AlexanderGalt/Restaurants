@@ -4,7 +4,7 @@ import { RestaurantsTabsBody } from "./RestaurantsTabsBody";
 import { useOutletContext } from "react-router-dom";
 
 export const RestaurantsTabsBodyContainer = () => {
-  const { currentId: restaurantId } = useOutletContext();
+  const { currentId: restaurantId } = useOutletContext(); 
 
   const restaurantData = useSelector((state) => selectRestaurantById(state, restaurantId));
 
