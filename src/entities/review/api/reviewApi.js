@@ -15,7 +15,7 @@ export const reviewApi = apiSlice.injectEndpoints({
         method: "POST",
         body: { text, userId, rating },
       }),
-      invalidatesTags: () => [{ type: "Reviews", id: "LIST" }],
+      invalidatesTags: [{ type: "Reviews", id: "LIST" }],
     }),
     updateReviewById: build.mutation({
       query: ({ newReviewData, reviewId }) => ({
